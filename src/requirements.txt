@@ -2,3 +2,4 @@ pandas
 supabase
 openpyxl
 streamlit
+psycopg2
