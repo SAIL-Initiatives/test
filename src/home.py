@@ -28,6 +28,7 @@ df = pd.read_csv( '../data/nhanes_before.csv',  )
 df = df.where(df.notna(), None)
 
 st.dataframe( df.sample(10)) 
+st.write( df.size ) 
 
 for col in df.columns:
     pg_type = infer_pg_type(df[col])
