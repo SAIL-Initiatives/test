@@ -9,7 +9,7 @@ from datetime import datetime
 now = datetime.now()    
 st.write( now )
 
-df = pd.read_excel( 'cchs2014.xls', sheet_name=0 )
+df = pd.read_csv( 'nhanes_before.csv',  )
 st.write( df.columns)
 
 supabase = create_client(
