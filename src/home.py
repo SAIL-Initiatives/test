@@ -27,7 +27,7 @@ def infer_pg_type(series: pd.Series) -> str:
 df = pd.read_csv( '../data/nhanes_before.csv',  )
 for col in df.columns:
     pg_type = infer_pg_type(df[col])
-    columns.append(f'"{col}" {pg_type}')
+    
     st.write( col, pg_type)
 
 supabase = create_client(
