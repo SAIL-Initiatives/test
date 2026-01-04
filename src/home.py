@@ -25,6 +25,8 @@ def infer_pg_type(series: pd.Series) -> str:
  
 
 df = pd.read_csv( '../data/nhanes_before.csv',  )
+df = df.where(df.notna(), None)
+
 st.dataframe( df.sample(10)) 
 
 for col in df.columns:
