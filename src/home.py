@@ -58,7 +58,7 @@ response = supabase.table("nhanes").select("*").order("UID", desc=True).execute(
 rows = response.data
 
 if rows:
-    for i,r in enumeric(rows):                
+    for i,r in enumerate(rows):                
         st.markdown(f"{r['UID']} {r['Gender']} {r['Age_y']} {r['Ethnicity']}")
         st.html( '<hr>')
         if i>10:
