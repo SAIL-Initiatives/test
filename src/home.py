@@ -25,8 +25,7 @@ def infer_pg_type(series: pd.Series) -> str:
  
 
 df = pd.read_csv( '../data/nhanes_before.csv',  )
-df = df.where(df.notna(), None)
-
+df = df.replace({np.nan: None}) 
 st.dataframe( df.sample(10)) 
 st.write( df.shape ) 
 
