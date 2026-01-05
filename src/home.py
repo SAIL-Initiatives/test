@@ -24,7 +24,7 @@ def infer_pg_type(series: pd.Series) -> str:
     return "text"
  
 
-df = pd.read_csv( '../data/nhanes_before.csv', index_col=[0]) )
+df = pd.read_csv( '../data/nhanes_before.csv', index_col=[0] )
 df = df.replace({np.nan: None}) 
 st.dataframe( df.sample(10)) 
 st.write( df.shape ) 
