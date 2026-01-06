@@ -77,16 +77,16 @@ with tabs[0]:
     # 2. Interaction panel
     # ---------------------------
     
-    st.sidebar.header("Interact with the Map")
+    st.header("Interact with the Map")
     
-    selected_id = st.sidebar.selectbox(
+    selected_id = st.selectbox(
         "Select building (physical block)",
         df["id"]
     )
     
     row = df[df["id"] == selected_id].iloc[0]
     
-    new_lat = st.sidebar.slider(
+    new_lat = st.slider(
         "Latitude",
         min_value=49.25,
         max_value=49.32,
@@ -94,7 +94,7 @@ with tabs[0]:
         step=0.0005
     )
     
-    new_lon = st.sidebar.slider(
+    new_lon = st.slider(
         "Longitude",
         min_value=-123.18,
         max_value=-123.05,
@@ -102,7 +102,7 @@ with tabs[0]:
         step=0.0005
     )
     
-    if st.sidebar.button("Move building"):
+    if st.button("Move building"):
         df.loc[df["id"] == selected_id, ["lat", "lon"]] = [new_lat, new_lon]
         st.session_state.buildings = df
     
