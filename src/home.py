@@ -85,3 +85,19 @@ else:
         st.write( rows[i] )
         supabase.table("nhanes").insert(rows[i:i+n]).execute()
 
+
+#new_file = getUserFile()
+#data = supabase.storage.from_(bucket_name).upload("/user1/profile.png", new_file)
+
+# data = supabase.table("nhanes").select("Age_y","Ethnicity","Gender","Ref_marital","Ref_edu").eq("country", "IL").order("UID").execute()
+
+
+response = (
+    supabase.table("nhanes")
+    .select("*")
+    .explain()
+    .execute()
+)
+
+st.markdown( '# Explain' )
+st.write(response)
