@@ -141,6 +141,20 @@ with tabs[0]:
     st.subheader("Digital Twin State")
     st.dataframe(df, use_container_width=True)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 with tabs[1]: 
     
     st.markdown('## Original CSV database')
@@ -152,10 +166,12 @@ with tabs[1]:
     
     st.markdown('## Augmented database hosted on Supabase')
     response = supabase.table("nhanes").select("*").order("UID", desc=True).execute()
-    res = pd.DataFrame(response.data)
-    st.write( res.shape )
+    res = response.data
     
     if res:
+        res = pd.DataFrame( res )
+        st.write( res.shape )
+    
         st.dataframe( res )
         if 0:
             for i,r in enumerate(rows):                
