@@ -75,14 +75,15 @@ with tabs[0]:
         pg_type = infer_pg_type(df[col])
         st.write( col, pg_type)       
 
-
-if 0:
-    rows = df.to_dict(orient="records")    
+    rows = df.to_dict(orient="records")            
+    st.markdown('# DischargeMe - Training set')
     n=5000
     for i in range(0, len(rows), n):
         st.html( '.' )
         st.write( rows[i] )
-        supabase.table("nhanes").insert(rows[i:i+n]).execute()
+        supabase.table("DischargeMe").insert(rows[i:i+n]).execute()
+        
+if 0:  
     
     
     # .explain() feature is disabled by default on the PostgREST server, to enable, issue SQL:
@@ -101,10 +102,7 @@ if 0:
     st.write(response)
     
     
-    st.markdown('# ')
-    response = supabase.table("nhanes").select("Age_y","Ethnicity","Gender","Ref_marital","Red_edu", "Smoke_home").eq("Gender", "Male").order("UID").execute()
-    df2 = pd.DataFrame(response.data)
-    st.dataframe(df2, use_container_width=True)
+
     
     response = supabase.table("nhanes").select("Age_y","Ethnicity","Gender","Ref_marital","Red_edu", "Smoke_home").eq("Gender", "Female").order("UID").execute()
     df1 = pd.DataFrame(response.data)
