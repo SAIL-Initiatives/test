@@ -101,8 +101,8 @@ with tabs[0]:
         dfs[c] = pd.read_csv( '../data/ACL24-DischargeMe/patients.csv.gz', index_col=[0] )
         dfs[c].replace({np.nan: None}, inplace=True) 
 
-        tids = ['DischargeMe','admissions','patients','triage']
-        for c in range(4):
+        tids = ['triage','DischargeMe','admissions','patients']
+        for c in [0,2,3]:
             report_types(dfs[c])
             try:
                 insert(tids[c], dfs[c])
