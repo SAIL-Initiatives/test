@@ -93,13 +93,13 @@ with tabs[0]:
         dfs[c].replace({np.nan: None}, inplace=True) 
         c+=1
         dfs[c] = pd.read_csv( '../data/ACL24-DischargeMe/discharge_target_test1.csv.gz', index_col=[0] )
-        dfs[c].replace({np.nan: None}, inplace=True) 
+        dfs[c].replace({np.nan: None}, inplace=True) # 29k
         c+=1
         dfs[c] = pd.read_csv( '../data/ACL24-DischargeMe/admissions.csv.gz', index_col=[0] )
-        dfs[c].replace({np.nan: None}, inplace=True)
+        dfs[c].replace({np.nan: None}, inplace=True) # 546k
         c+=1
         dfs[c] = pd.read_csv( '../data/ACL24-DischargeMe/patients.csv.gz', index_col=[0] )
-        dfs[c].replace({np.nan: None}, inplace=True) 
+        dfs[c].replace({np.nan: None}, inplace=True)  # 364k
 
         tids = ['triage','DischargeMe','admissions','patients']
         for c in [0]:
