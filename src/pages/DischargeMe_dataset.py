@@ -59,7 +59,7 @@ def report_types( df ):
 def insert(table_id, df):
     n=5000
     rows = df.to_dict(orient="records")            
-    st.markdown('# Admissions - Training set')
+    st.markdown( f'{table_id} - Training set')
     n=5000
     for i in range(0, df.shape[0], n):
         st.html( '.' )
