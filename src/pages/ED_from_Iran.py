@@ -74,7 +74,7 @@ tabs = st.tabs( ['SQL'] )
   
 with tabs[0]: 
     try:
-        for tid in ['admissions','triage']:            
+        for tid in ['iran_ed_admission','iran_ed_triage']:            
             response = supabase.table( tid ).select("*").execute()
             res = response.data
             st.write( tid )
