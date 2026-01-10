@@ -83,10 +83,10 @@ with tabs[0]:
         st.markdown('# Read from source')
         dfs={}
         c=0
-        dfs[c] = pd.read_csv( '../data/iran_ed/ED_admissions.csv', index_col=[0] )
+        dfs[c] = pd.read_csv( '../../data/iran_ed/ED_admission.csv', index_col=[0] )
         dfs[c].replace({np.nan: None}, inplace=True) 
         c+=1
-        dfs[c] = pd.read_csv( '../data/iran_ed/ED_triage.csv', index_col=[0] )
+        dfs[c] = pd.read_csv( '../../data/iran_ed/ED_triage.csv', index_col=[0] )
         dfs[c].replace({np.nan: None}, inplace=True)         
         tids = ['triage','admissions']
         for c in [0,1]:
