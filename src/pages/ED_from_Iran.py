@@ -54,7 +54,7 @@ def infer_pg_type(series: pd.Series) -> str:
 def report_types( df ):
     for i, col in enumerate(df.columns):
         pg_type = infer_pg_type(df[col])
-        st.write( col + " " + pg_type + "," )     
+        st.write( f""{col} {pg_type},"" )     
 def insert(table_id, df):
     n=5000
     rows = df.to_dict(orient="records")            
@@ -90,6 +90,7 @@ with tabs[0]:
         dfs[c].replace({np.nan: None}, inplace=True)         
         tids = ['admissions','triage']
         for c in [0,1]:
+            st.write( tids[c] )
             report_types(dfs[c])
         for c in [0,1]:    
             try:
