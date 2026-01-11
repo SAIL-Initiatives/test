@@ -54,7 +54,7 @@ def infer_pg_type(series: pd.Series) -> str:
 def report_types( df ):
     for i, col in enumerate(df.columns):
         pg_type = infer_pg_type(df[col])
-        st.write( f""{col} {pg_type},"" )     
+        st.write( f"\"{col} {pg_type},\"" )     
 def insert(table_id, df):
     n=5000
     rows = df.to_dict(orient="records")            
