@@ -58,7 +58,7 @@ def report_types( df ):
 def insert(table_id, df):
     n=5000
     rows = df.to_dict(orient="records")            
-    st.markdown( f'{table_id} - Training set')
+    st.markdown( f'Inserting into {table_id}')
     n=5000
     for i in range(0, df.shape[0], n):
         st.html( '.' )
@@ -88,9 +88,10 @@ with tabs[0]:
         c+=1
         dfs[c] = pd.read_csv( '../data/iran_ed/ED_triage.csv', index_col=[0] )
         dfs[c].replace({np.nan: None}, inplace=True)         
-        tids = ['triage','admissions']
+        tids = ['admissions','triage']
         for c in [0,1]:
             report_types(dfs[c])
+        for c in [0,1]:    
             try:
                 insert(tids[c], dfs[c])
             except Exception as e:
