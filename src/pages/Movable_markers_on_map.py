@@ -1,5 +1,7 @@
 
 import pydeck as pdk
+import streamlit as st
+tabs = st.tabs(['1'])
 
 with tabs[0]:
     # ---------------------------
